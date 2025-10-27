@@ -31,3 +31,12 @@ app.post("/komik", async (req, res) =>{
         res.send(err);
     }
 });
+
+app.get('/komik', async (req, res) => {
+    try {
+        const komik = await db.komik.findALL();
+        res.send(komik);
+    } catch(err) {
+        res.send(err);
+    }
+});
